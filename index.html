@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate E-Commerce Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Ultimate Tienda</h1>
+  <div class="header-right">
+    <button id="theme-toggle">🌙</button>
+    <div id="cart">
+      🛒 <span id="cart-count">0</span>
+      <span id="cart-float" class="hidden">+1</span>
+    </div>
+  </div>
+</header>
+
+<section id="filters">
+  <input type="text" id="search" placeholder="Buscar producto..." onkeyup="filterProducts()">
+  <select id="category-filter" onchange="filterProducts()">
+    <option value="all">Todas las categorías</option>
+  </select>
+  <select id="sort-filter" onchange="filterProducts()">
+    <option value="default">Ordenar por</option>
+    <option value="price-asc">Precio ↑</option>
+    <option value="price-desc">Precio ↓</option>
+    <option value="name-asc">Nombre A-Z</option>
+    <option value="name-desc">Nombre Z-A</option>
+  </select>
+</section>
+
+<main id="products"></main>
+
+<section id="cart-modal" class="hidden">
+  <h2>Carrito</h2>
+  <div id="cart-items"></div>
+  <p>Total: $<span id="cart-total">0</span></p>
+  <button onclick="checkout()">Comprar</button>
+  <button onclick="toggleCart()">Cerrar</button>
+</section>
+
+<section id="product-modal" class="hidden">
+  <div id="product-content"></div>
+  <button onclick="closeProduct()">Cerrar</button>
+</section>
+
+<section id="checkout-modal" class="hidden">
+  <h2>Checkout</h2>
+  <form id="checkout-form">
+    <label>Nombre:</label>
+    <input type="text" id="name" required>
+    <label>Correo:</label>
+    <input type="email" id="email" required>
+    <label>Dirección:</label>
+    <input type="text" id="address" required>
+    <label>Método de pago:</label>
+    <select id="payment" required>
+      <option value="tarjeta">Tarjeta</option>
+      <option value="paypal">PayPal</option>
+      <option value="efectivo">Efectivo</option>
+    </select>
+    <button type="submit">Pagar</button>
+    <button type="button" onclick="closeCheckout()">Cancelar</button>
+  </form>
+</section>
+
+<div id="popup" class="hidden">¡Agregado ✅</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
